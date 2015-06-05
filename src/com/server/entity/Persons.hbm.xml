@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-6-4 17:10:47 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.server.entity.Persons" table="PERSONS">
+        <id name="id" type="java.lang.String">
+            <column name="ID" />
+            <generator class="uuid" />
+        </id>
+        <property name="headImg" type="java.lang.String">
+            <column name="HEADIMG" />
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="phone" type="java.lang.String">
+            <column name="PHONE" />
+        </property>
+        <property name="passwd" type="java.lang.String">
+            <column name="PASSWD" />
+        </property>
+        <property name="pId" type="java.lang.String" access="field">
+            <column name="PID" />
+        </property>
+        <property name="pName" type="java.lang.String" access="field">
+            <column name="PNAME" />
+        </property>
+        <property name="pushNum" type="int">
+            <column name="PUSHNUM" />
+        </property>
+        <property name="getNum" type="int">
+            <column name="GETNUM" />
+        </property>
+        <property name="honourNum" type="long">
+            <column name="HONOURNUM" />
+        </property>
+        <property name="dataIndex" type="int">
+            <column name="DATAINDEX" />
+        </property>
+        <property name="getDataIndex" type="int">
+            <column name="GETDATAINDEX" />
+        </property>
+    </class>
+</hibernate-mapping>

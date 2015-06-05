@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<!-- setting encoding,DynamicMethod,language
+	<constant name="struts.custom.i18n.resources" value="messageResource"></constant>
+	-->
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+
+	<!-- add package here extends="struts-default"-->
+	<package name="order" extends="json-default">
+		<!--需要将struts-default改为json-default-->
+		<!-- setting action -->
+		<action name="*Orders" class="com.server.action.OrdersAction" method="{1}">
+			<result type="json"></result>  <!--返回值类型设置为json,不设置返回页面-->
+		</action>
+		<action name="*Permission" class="com.server.action.PermissionAction" method="{1}">
+			<result type="json"></result>  <!--返回值类型设置为json,不设置返回页面-->
+		</action>
+	</package>
+</struts>
