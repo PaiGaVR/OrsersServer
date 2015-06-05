@@ -1,5 +1,8 @@
 package com.server.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Orders {
 	/**
 	 * 下单人ID
@@ -24,7 +27,7 @@ public class Orders {
 	/**
 	 * 接单人ID
 	 */
-	private String rId = "";
+	private Set<String> rId = new HashSet<String>();
 
 	/**
 	 * 回单人姓名
@@ -90,14 +93,6 @@ public class Orders {
 
 	public void setoId(String oId) {
 		this.oId = oId;
-	}
-
-	public String getrId() {
-		return rId;
-	}
-
-	public void setrId(String rId) {
-		this.rId = rId;
 	}
 
 	public String getName() {
@@ -178,5 +173,13 @@ public class Orders {
 
 	public void setDataIndex(int dataIndex) {
 		this.dataIndex = dataIndex;
+	}
+
+	public Set<String> getrId() {
+		return rId;
+	}
+
+	public void setrId(Set<String> rId) {
+		this.rId = rId;
 	}
 }

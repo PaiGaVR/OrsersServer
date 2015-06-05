@@ -16,7 +16,15 @@ public class Control {
 	}
 	
 	public boolean register(Persons person) {
-		PersonsDB.getInstance().addPerson(person);
-		return true;
+		if (("" != person.getName() || "" != person.getPhone()) && "" != person.getPasswd())
+			return PersonsDB.getInstance().addPerson(person);
+		
+		return false;
+	}
+	
+	public Persons login(Persons person) {
+		if ("" != person.getName() && "" != person.getPasswd())
+			return PersonsDB.getInstance().getPerson(person.getName(), person.getPasswd());
+		return null;
 	}
 }

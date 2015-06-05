@@ -1,7 +1,12 @@
 package com.server.action;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import net.sf.json.JSONObject;
 
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
@@ -43,6 +48,25 @@ public class PermissionAction extends ActionSupport implements
 
 	public void register() {
 		Control.getInstance().register(user);
+	}
+	
+	public void login() {
+		user = Control.getInstance().login(user);
+		
+		JSONObject jsonUser = JSONObject.fromObject(user);
+		
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter writer = null;
+		try {
+			writer = response.getWriter();
+			writer.print(jsonUser);
+			writer.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (null != writer)
+				writer.close();
+		}
 	}
 
 	@Override

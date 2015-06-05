@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-6-4 17:10:47 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2015-6-5 15:30:10 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.server.entity.Persons" table="PERSONS">
         <id name="id" type="java.lang.String">
@@ -20,18 +20,30 @@
         <property name="passwd" type="java.lang.String">
             <column name="PASSWD" />
         </property>
+        <property name="sex" type="int">
+            <column name="SEX" />
+        </property>
+        <property name="area" type="java.lang.String">
+            <column name="AREA" />
+        </property>
         <property name="pId" type="java.lang.String" access="field">
             <column name="PID" />
         </property>
         <property name="pName" type="java.lang.String" access="field">
             <column name="PNAME" />
         </property>
-        <property name="pushNum" type="int">
-            <column name="PUSHNUM" />
-        </property>
-        <property name="getNum" type="int">
-            <column name="GETNUM" />
-        </property>
+        <set name="pushOId" table="P_PERSONS_ORDERS" inverse="true" lazy="true">
+            <key>
+                <column name="P_PERSONS_ID" />
+            </key>
+            <one-to-many class="com.server.entity.Orders"/>
+        </set>
+        <set name="getOID" table="R_PERSONS_ORDERS" inverse="true" lazy="true">
+            <key>
+                <column name="R_PERSONS_ID" />
+            </key>
+            <many-to-many class="com.server.entity.Orders" column="R_ORDERS_ID" />
+        </set>
         <property name="honourNum" type="long">
             <column name="HONOURNUM" />
         </property>
